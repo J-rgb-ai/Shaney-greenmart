@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Sign In</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <style>
+        body {
+            background: url('https://img.freepik.com/free-photo/vegetables-from-basket-wooden-table_155003-5607.jpg?w=740&t=st=1699941202~exp=1699941802~hmac=5c8e08bbc6b9c242809896357c5e5e60a6dbd3585a58f3b2ffdae116ef7cc117') center/cover no-repeat fixed; /* Set the background image */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent content from overflowing */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place the overlay behind the content */
+        }
+
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+            z-index: 1; /* Place the content above the overlay */
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            width: 100%;
+        }
+
+        .toggle-form {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #007bff;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div> <!-- Overlay to blur the background -->
+
+    <div class="container">
+        <form id="signup-form">
+            <h2 class="text-center mb-4">Sign Up</h2>
+
+            <div class="form-group">
+                <label for="signup-username">Username</label>
+                <input type="text" class="form-control" id="signup-username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" class="form-control" id="signup-password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+
+            <p class="text-center toggle-form" onclick="toggleForm()">Already have an account? Sign In</p>
+        </form>
+
+        <form id="signin-form" style="display: none;">
+            <h2 class="text-center mb-4">Sign In</h2>
+
+            <div class="form-group">
+                <label for="signin-username">Username</label>
+                <input type="text" class="form-control" id="signin-username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signin-password">Password</label>
+                <input type="password" class="form-control" id="signin-password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign In</button>
+
+            <p class="text-center toggle-form" onclick="toggleForm()">Don't have an account? Sign Up</p>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        function toggleForm() {
+            const signupForm = document.getElementById('signup-form');
+            const signinForm = document.getElementById('signin-form');
+
+            if (signupForm.style.display === 'none') {
+                signupForm.style.display = 'block';
+                signinForm.style.display = 'none';
+            } else {
+                signupForm.style.display = 'none';
+                signinForm.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
